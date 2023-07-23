@@ -2,13 +2,13 @@
 
 > Here is [the working version](https://mate-academy.github.io/react_counter/)
 
-У вас есть приложение с заголовком и 3 кнопки.Реализуйте функции `Addone` и` add100`, чтобы кнопки работали следующим образом:
+You have the `App` with a title and 3 buttons. Implement `addOne` and `add100` functions so the buttons work the next way:
 
-- `Добавить 1` Кнопки вызовы` addone` Метод, чтобы добавить `1` в` count ';
-- `Добавить 100 'кнопку вызовов` add100
-- `Увеличить вызовы кнопки« Увеличение »` addone`, а затем, если счет был делим на 5, он дополнительно вызывает `add100`.
+- `Add 1` button calls `addOne` method to add `1` to the `count`;
+- `Add 100` button calls `add100` method to add `100` to the `count`;
+- `Increase` button calls `addOne` and then, if count was divisible by 5, it additionally calls `add100`.
 
-Итак, третья кнопка должна считать так:
+So the third button should count like this:
 `101, 102, 103, 104, 105, 206, 207, 208, 209, 210, 311 ...`
 
 ## Instructions
