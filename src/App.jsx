@@ -1,15 +1,17 @@
 import { useState } from 'react';
+import 'bulma/css/bulma.css';
+
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    setCount(currentCount => currentCount + 1);
   };
 
   const add100 = () => {
-    // write code here
+    setCount(currentCount => currentCount + 100);
   };
 
   // DON'T change the code below
@@ -23,19 +25,31 @@ export const App = () => {
 
   return (
     <div className="App">
-      <h1 className="App__title">
+      <h1 className="App__title title is-2">
         {`Count: ${count}`}
       </h1>
 
-      <button type="button" className="App__add-one" onClick={addOne}>
+      <button
+        type="button"
+        className="App__add-one button is-primary"
+        onClick={addOne}
+      >
         Add 1
       </button>
 
-      <button type="button" className="App__add-100" onClick={add100}>
+      <button
+        type="button"
+        className="App__add-100 button is-info"
+        onClick={add100}
+      >
         Add 100
       </button>
 
-      <button type="button" className="App__increase" onClick={increase}>
+      <button
+        type="button"
+        className="App__increase button is-link"
+        onClick={increase}
+      >
         Increase
       </button>
     </div>
