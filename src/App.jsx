@@ -5,23 +5,11 @@ export const App = () => {
   const [count, setCount] = useState(0);
 
   const addOne = () => {
-    setCount((actualValue) => {
-      let copy = actualValue;
-
-      copy += 1;
-
-      return copy;
-    });
+    setCount(actualValue => actualValue + 1);
   };
 
   const add100 = () => {
-    setCount((actualValue) => {
-      let copy = actualValue;
-
-      copy += 100;
-
-      return copy;
-    });
+    setCount(actualValue => actualValue + 100);
   };
 
   const increase = () => {
