@@ -2,6 +2,16 @@ iframe {
   display: none;
 }
 
-button {
-  cursor: pointer;
+.App {
+  margin-top: 200px;
+  text-align: center;
+  font-size: 30px;
+  font-family: sans-serif;
+}
+
+.buttons {
+  display: grid;
+  width: 50%;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
 }
