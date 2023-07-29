@@ -1,0 +1,21 @@
+button {
+  cursor: pointer;
+  margin: 0 50px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: sans-serif;
+  background-color: #e5f6fd;
+  filter: drop-shadow(0 0 1px #000);
+  transition: filter 0.3s linear, background-color 0.1s linear;
+}
+
+button:hover {
+  filter: drop-shadow(0 0 3px #000);
+  background-color: #d2f2ff;
+}
+
+button:active {
+  background-color: #b9e6f8;
+}

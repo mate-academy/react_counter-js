@@ -1,24 +1,25 @@
 import { useState } from 'react';
 import './App.scss';
 
+import { AddButton } from './components/AddButton';
+
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    setCount(currentCount => currentCount + 1);
   };
 
   const add100 = () => {
-    // write code here
+    setCount(currentCount => currentCount + 100);
   };
 
-  // DON'T change the code below
   const increase = () => {
     if (count % 5 === 0) {
-      add100();
+      add100(count);
     }
 
-    addOne();
+    addOne(count);
   };
 
   return (
@@ -26,18 +27,23 @@ export const App = () => {
       <h1 className="App__title">
         {`Count: ${count}`}
       </h1>
-
-      <button type="button" className="App__add-one" onClick={addOne}>
-        Add 1
-      </button>
-
-      <button type="button" className="App__add-100" onClick={add100}>
-        Add 100
-      </button>
-
-      <button type="button" className="App__increase" onClick={increase}>
-        Increase
-      </button>
+      <div className="buttons">
+        <AddButton
+          text="Add 1"
+          callback={addOne}
+          classname="App__add-one"
+        />
+        <AddButton
+          text="Add 100"
+          callback={add100}
+          classname="App__add-100"
+        />
+        <AddButton
+          text="Increase"
+          callback={increase}
+          classname="App__increase"
+        />
+      </div>
     </div>
   );
 };
