@@ -2,15 +2,9 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
-
-  const addOne = () => {
-    // write code here
-  };
-
-  const add100 = () => {
-    // write code here
-  };
+  const [count, setCount] = useState(0);
+  const addOne = () => setCount(prevState => prevState + 1);
+  const add100 = () => setCount(prevState => prevState + 100);
 
   // DON'T change the code below
   const increase = () => {
@@ -23,9 +17,7 @@ export const App = () => {
 
   return (
     <div className="App">
-      <h1 className="App__title">
-        {`Count: ${count}`}
-      </h1>
+      <h1 className="App__title">{`Count: ${count}`}</h1>
 
       <button type="button" className="App__add-one" onClick={addOne}>
         Add 1
