@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import './App.scss';
+import { ADD_100, ADD_ONE } from './constants/app.constants';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    setCount(prevCount => prevCount + ADD_ONE);
   };
 
   const add100 = () => {
-    // write code here
+    setCount(prevCount => prevCount + ADD_100);
   };
 
   // DON'T change the code below
