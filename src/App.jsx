@@ -5,18 +5,17 @@ export const App = () => {
   const [count, setCount] = useState(0);
 
   const addOne = () => {
-    setCount(count + 1);
+    setCount(countCurrent => countCurrent + 1);
   };
 
   const add100 = () => {
-    setCount(count + 100);
+    setCount(countCurrent => countCurrent + 100);
   };
 
   const increase = () => {
+    // eslint-disable-next-line no-unused-expressions
+    count % 5 === 0 && count !== 0 ? add100() : null;
     addOne();
-    if (count % 5 === 0) {
-      add100();
-    }
   };
 
   return (
