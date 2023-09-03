@@ -14,7 +14,7 @@ export const App = () => {
 
   const increase = () => {
     // eslint-disable-next-line no-unused-expressions
-    count % 5 === 0 && count !== 0 ? add100() : null;
+    count % 5 === 0 || count === 0 ? add100() : null;
     addOne();
   };
 
