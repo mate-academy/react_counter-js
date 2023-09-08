@@ -5,11 +5,11 @@ export const App = () => {
   const [count, setCount] = useState(0);
 
   const addOne = () => {
-    setCount(prev => prev + 1);
+    setCount(prevCount => prevCount + 1);
   };
 
   const add100 = () => {
-    setCount(prev => prev + 100);
+    setCount(prevCount => prevCount + 100);
   };
 
   // DON'T change the code below
