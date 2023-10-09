@@ -4,9 +4,11 @@ import './App.scss';
 export const App = () => {
   const [count, setCount] = useState(0);
 
-  const addOne = () => setCount(count + 1);
+  // eslint-disable-next-line no-shadow
+  const addOne = () => setCount(count => count + 1);
 
-  const add100 = () => setCount(count + 100);
+  // eslint-disable-next-line no-shadow
+  const add100 = () => setCount(count => count + 100);
 
   // DON'T change the code below
   const increase = () => {
