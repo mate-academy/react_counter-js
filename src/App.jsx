@@ -2,14 +2,22 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    setCount((currentCount) => {
+      const resultCount = currentCount + 1;
+
+      return resultCount;
+    });
   };
 
   const add100 = () => {
-    // write code here
+    setCount((currentCount) => {
+      const resultCount = currentCount + 100;
+
+      return resultCount;
+    });
   };
 
   // DON'T change the code below
@@ -27,11 +35,19 @@ export const App = () => {
         {`Count: ${count}`}
       </h1>
 
-      <button type="button" className="App__add-one" onClick={addOne}>
+      <button
+        type="button"
+        className="App__add-one"
+        onClick={addOne}
+      >
         Add 1
       </button>
 
-      <button type="button" className="App__add-100" onClick={add100}>
+      <button
+        type="button"
+        className="App__add-100"
+        onClick={add100}
+      >
         Add 100
       </button>
 
