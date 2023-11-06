@@ -8,9 +8,9 @@ export const App = () => {
     setCount(prevCount => prevCount + 1);
   };
 
-  const add100 = () => (
-    setCount(prevCount => prevCount + 100)
-  );
+  const add100 = () => {
+    setCount(prevCount => prevCount + 100);
+  };
 
   // DON'T change the code below
   const increase = () => {
