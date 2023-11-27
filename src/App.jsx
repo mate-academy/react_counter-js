@@ -2,14 +2,22 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    setCount((currentCount) => {
+      const newCount = currentCount + 1;
+
+      return newCount;
+    });
   };
 
   const add100 = () => {
-    // write code here
+    setCount((currentCount) => {
+      const newCount = currentCount + 100;
+
+      return newCount;
+    });
   };
 
   // DON'T change the code below
