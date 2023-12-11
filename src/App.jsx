@@ -5,11 +5,11 @@ export const App = () => {
   const [count, setCount] = useState(0);
 
   const addOne = () => {
-    setCount(currentCount => currentCount + 1);
+    setCount(num => num + 1);
   };
 
   const add100 = () => {
-    setCount(currentCount => currentCount + 100);
+    setCount(num => num + 100);
   };
 
   // DON'T change the code below
@@ -45,7 +45,7 @@ export const App = () => {
 
       <button
         type="button"
-        lassName="App__increase"
+        className="App__increase"
         onClick={increase}
       >
         Increase
