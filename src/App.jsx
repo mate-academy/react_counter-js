@@ -2,20 +2,16 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
-  const addOne = () => {
-    // write code here
-  };
+  const addOne = () => setCount(currentCount => currentCount + 1);
 
-  const add100 = () => {
-    // write code here
-  };
+  const add100 = () => setCount(currentCount => currentCount + 100);
 
   // DON'T change the code below
   const increase = () => {
     if (count % 5 === 0) {
-      add100();
+      setCount(count + 100);
     }
 
     addOne();
@@ -41,3 +37,8 @@ export const App = () => {
     </div>
   );
 };
+/*
+- `Add 1` button calls `addOne` method to add `1` to the `count`;
+- `Add 100` button calls `add100` method to add `100` to the `count`;
+- `Increase` button calls `addOne` and then, if count was divisible by 5, it additionally calls `add100`.
+ */
