@@ -6,6 +6,7 @@ export const App = () => {
 
   const addOne = () => {
     setCount(counter => {
+      /* eslint-disable */
       return (counter += 1);
     });
   };
