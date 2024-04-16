@@ -7,7 +7,7 @@ export const App = () => {
 
 
   const addOne = () => {
-    countIn++;
+    countIn += 1;
     setCount(countIn);
   };
 
