@@ -14,10 +14,10 @@ export const App = () => {
 
   const increase = () => {
     if (count % 5 === 0) {
-      addOne(); // Adiciona 1 ao contador
-      add100(); // Adiciona 100 ao contador
+      addOne();
+      add100();
     } else {
-      addOne(); // Adiciona 1 ao contador
+      addOne();
     }
   };
 
