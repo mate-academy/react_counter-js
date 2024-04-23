@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import './App.scss';
+import { getButtons } from './helpers/getButtons';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    setCount(prevState => prevState + 1);
   };
 
   const add100 = () => {
-    // write code here
+    setCount(prevState => prevState + 100);
   };
 
-  // DON'T change the code below
   const increase = () => {
     if (count % 5 === 0) {
       add100();
@@ -21,21 +21,17 @@ export const App = () => {
     addOne();
   };
 
+  const buttons = getButtons(addOne, add100, increase);
+
   return (
     <div className="App">
       <h1 className="App__title">{`Count: ${count}`}</h1>
 
-      <button type="button" className="App__add-one" onClick={addOne}>
-        Add 1
-      </button>
-
-      <button type="button" className="App__add-100" onClick={add100}>
-        Add 100
-      </button>
-
-      <button type="button" className="App__increase" onClick={increase}>
-        Increase
-      </button>
+      {buttons.map(({ text, className, onClick }) => (
+        <button type="button" className={className} onClick={onClick}>
+          {text}
+        </button>
+      ))}
     </div>
   );
 };
