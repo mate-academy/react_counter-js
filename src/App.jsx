@@ -12,6 +12,7 @@ export const App = () => {
     setCount(prevCount => prevCount + 100);
   };
 
+  // DON'T change the code below
   const increase = () => {
     addOne();
     if (count % 5 === 0) {
