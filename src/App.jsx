@@ -5,11 +5,11 @@ export const App = () => {
   const [count, setCount] = useState(0);
 
   const addOne = () => {
-    return setCount(count + 1)
+    return setCount(count + 1);
   };
 
   const add100 = () => {
-    return setCount(count + 100)
+    return setCount(count + 100);
   };
 
   // DON'T change the code below
@@ -18,7 +18,7 @@ export const App = () => {
       return setCount(count + 101);
     }
 
-    addOne();
+    return addOne();
   };
 
   return (
