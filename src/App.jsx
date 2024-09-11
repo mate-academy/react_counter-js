@@ -1,15 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.scss';
 
 export const App = () => {
   const [count, setCount] = useState(0);
 
+  // Завантаження з localStorage при завантаженні компонента
+  useEffect(() => {
+    const savedValue = localStorage.getItem('value');
+    if (savedValue) {
+      setCount(savedValue);
+    }
+  }, []);
+
+  // Збереження в localStorage при зміні стану
+  useEffect(() => {
+    localStorage.setItem('value', count);
+  }, [count]);
+
   const addOne = () => {
-    setCount(prevCount => prevCount + 1);
+    setCount(currentCount => currentCount + 1);
   };
 
   const add100 = () => {
-    setCount(prevCount => prevCount + 100);
+    setCount(currentCount => currentCount + 100);
   };
 
   // DON'T change the code below
