@@ -5,3 +5,37 @@ iframe {
 button {
   cursor: pointer;
 }
+
+.App__title {
+  color: rgb(17, 132, 185);
+}
+
+.App__add-one {
+  background-color: aqua;
+
+  &:active {
+    background-color: red;
+    transition: all 0.1s ease-in-out;
+    transform: scale(1.1);
+  }
+}
+
+.App__add-100 {
+  background-color: yellowgreen;
+
+  &:active {
+    background-color: red;
+    transition: all 0.1s ease-in-out;
+    transform: scale(1.1);
+  }
+}
+
+.App__increase {
+  background-color: violet;
+
+  &:active {
+    background-color: red;
+    transition: all 0.1s ease-in-out;
+    transform: scale(1.1);
+  }
+}
