@@ -5,9 +5,7 @@ export const App = () => {
   const [count, setCount] = useState(0);
   const addOne = () => setCount(currentNum => currentNum + 1);
 
-  const add100 = () => {
-    return setCount(currentNum => currentNum + 100);
-  };
+  const add100 = () => setCount(currentNum => currentNum + 100);
 
   const increase = () => {
     if (count % 5 === 0) {
