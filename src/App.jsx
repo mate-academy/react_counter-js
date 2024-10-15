@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  let [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
     setCount(c => c + 1);
