@@ -1,15 +1,18 @@
+/* eslint-disable no-shadow */
 import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    setCount(currenCount => currenCount + 1);
   };
 
+  // eslint-disable-next-line no-unused-vars
   const add100 = () => {
     // write code here
+    setCount(currenCount => currenCount + 100);
   };
 
   // DON'T change the code below
