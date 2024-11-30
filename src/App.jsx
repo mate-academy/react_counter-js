@@ -6,11 +6,11 @@ export const App = () => {
 
   const addOne = () => {
     setCount(c => {
-      let b = c;
+      let current = c;
 
-      b += 1;
+      current += 1;
 
-      return b;
+      return current;
     });
   };
 
