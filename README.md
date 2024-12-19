@@ -2,7 +2,7 @@
 
 ### Description
 
-- Implementted `Add 1` and `Add 100` functions so the buttons work the next way:
+Implementted `Add 1` and `Add 100` functions so the buttons work the next way:
 
 - `Add 1` adds `1` to the `count`
 - `Add 100` adds `100` to the `count`
