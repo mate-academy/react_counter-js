@@ -21,7 +21,7 @@ export const App = () => {
     setCount(prevCount => {
       const newCount = prevCount + 1;
 
-      // If count is divisible by 5 after adding 1, add 100
+      // Only add 100 if the new count is divisible by 5
       if (newCount % 5 === 0) {
         return newCount + 100;
       }
