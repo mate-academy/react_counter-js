@@ -7,23 +7,27 @@ export const App = () => {
 
   // Function to add 1 to the count
   const addOne = () => {
-    setCount(count + 1);
+    setCount(prevCount => prevCount + 1);
   };
 
   // Function to add 100 to the count
   const add100 = () => {
-    setCount(count + 100);
+    setCount(prevCount => prevCount + 100);
   };
 
   // Increase function as specified
   const increase = () => {
     // First, add 1
-    addOne();
+    setCount(prevCount => {
+      const newCount = prevCount + 1;
 
-    // If count is divisible by 5 after adding 1, add 100
-    if ((count + 1) % 5 === 0) {
-      add100();
-    }
+      // If count is divisible by 5 after adding 1, add 100
+      if (newCount % 5 === 0) {
+        return newCount + 100;
+      }
+
+      return newCount;
+    });
   };
 
   return (
