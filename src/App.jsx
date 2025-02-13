@@ -3,12 +3,12 @@ import { useState } from 'react';
 import './App.scss';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [counter, setCount] = useState(0);
 
   const addOne = () => setCount(prev => prev + 1);
   const add100 = () => setCount(prev => prev + 100);
   const increase = () => {
-    if (count === 0 || count === 100) {
+    if (counter === 0 || counter === 100) {
       setCount(prev => prev + 101);
     } else {
       addOne();
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Counter: {count}</h1>
+      <h1>Counter: {counter}</h1>
       <button className="App__add-one" onClick={addOne}>
         Add 1
       </button>
