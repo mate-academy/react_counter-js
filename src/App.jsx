@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="App__title">Counter: {count}</h1>
+      <h1>Counter: {count}</h1>
       <button className="App__add-one" onClick={addOne}>
         Add 1
       </button>
