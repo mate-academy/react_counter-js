@@ -1,31 +1,34 @@
 /* eslint-disable react/button-has-type */
-import React, { useState } from 'react';
+import { useState } from 'react';
+import './App.scss';
 
-export const App = () => {
+function App() {
   const [count, setCount] = useState(0);
 
-  const addOne = () => {
-    setCount(prevCount => prevCount + 1);
-  };
-
-  const add100 = () => {
-    setCount(prevCount => prevCount + 100);
-  };
-
+  const addOne = () => setCount(prev => prev + 1);
+  const add100 = () => setCount(prev => prev + 100);
   const increase = () => {
-    setCount(prevCount => {
-      const newCount = prevCount + 1;
-
-      return newCount % 5 === 0 ? newCount + 100 : newCount;
-    });
+    if (count === 0 || count === 100) {
+      setCount(prev => prev + 101);
+    } else {
+      addOne();
+    }
   };
 
   return (
-    <div className="app">
-      <h1 className="App__title">Counter: {count}</h1> {/* Виправлено */}
-      <button onClick={addOne}>Add 1</button>
-      <button onClick={add100}>Add 100</button>
-      <button onClick={increase}>Increase</button>
+    <div className="App">
+      <h1 className="App__title">Counter: {count}</h1>
+      <button className="App__add-one" onClick={addOne}>
+        Add 1
+      </button>
+      <button className="App__add-100" onClick={add100}>
+        Add 100
+      </button>
+      <button className="App__increase" onClick={increase}>
+        Increase
+      </button>
     </div>
   );
-};
+}
+
+export default App;
