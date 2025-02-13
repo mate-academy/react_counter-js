@@ -4,7 +4,7 @@ import { useState } from 'react';
 // eslint-disable-next-line import/no-self-import
 import './App';
 
-function App() {
+export function App() {
   const [count, setCount] = useState(0);
 
   const addOne = () => setCount(prev => prev + 1);
@@ -35,5 +35,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
