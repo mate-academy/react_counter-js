@@ -1,23 +1,28 @@
 /* eslint-disable react/button-has-type */
+/* eslint-disable padding-line-between-statements */
 import { useState } from 'react';
-import './App.scss';
+// eslint-disable-next-line import/no-self-import
+import './App';
 
 function App() {
-  const [counter, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => setCount(prev => prev + 1);
   const add100 = () => setCount(prev => prev + 100);
+
   const increase = () => {
-    if (counter === 0 || counter === 100) {
-      setCount(prev => prev + 101);
-    } else {
-      addOne();
-    }
+    setCount(prev => {
+      const newCount = prev + 1;
+      if (newCount % 5 === 0) {
+        return newCount + 100;
+      }
+      return newCount;
+    });
   };
 
   return (
     <div className="App">
-      <h1>Counter: {counter}</h1>
+      <h1 className="App__title">Count: {count}</h1>
       <button className="App__add-one" onClick={addOne}>
         Add 1
       </button>
