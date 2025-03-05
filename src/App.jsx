@@ -1,41 +1,56 @@
-import { useState } from 'react';
-import './App.scss';
+import React, { useState } from 'react';
+import './App.css';
 
-export const App = () => {
-  const [count] = useState(0);
+function App() {
+    const [count, setCount] = useState(0); // Initialize count state
 
-  const addOne = () => {
-    // write code here
-  };
+    // Function to add 1 to the count
+    const addOne = () => {
+        setCount(prevCount => prevCount + 1);
+    };
 
-  const add100 = () => {
-    // write code here
-  };
+    // Function to add 100 to the count
+    const add100 = () => {
+        setCount(prevCount => prevCount + 100);
+    };
 
-  // DON'T change the code below
-  const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
+    // Function for the "Increase" button
+    const increase = () => {
+        addOne(); // Call addOne
+        if ((count + 1) % 5 === 0) { // Check if the count (after adding 1) is divisible by 5
+            add100(); // Add 100
+        }
+    };
 
-    addOne();
-  };
+    return (
+        <div className="App">
+            <h1>React Counter</h1>
+            <h2>{`Count: ${count}`}</h2>
 
-  return (
-    <div className="App">
-      <h1 className="App__title">{`Count: ${count}`}</h1>
+            <div className="buttons">
+                <button
+                    className="button is-primary"
+                    onClick={addOne}
+                >
+                    Add 1
+                </button>
 
-      <button type="button" className="App__add-one" onClick={addOne}>
-        Add 1
-      </button>
+                <button
+                    className="button is-success"
+                    onClick={add100}
+                >
+                    Add 100
+                </button>
 
-      <button type="button" className="App__add-100" onClick={add100}>
-        Add 100
-      </button>
+                <button
+                    className="button is-warning"
+                    onClick={increase}
+                >
+                    Increase
+                </button>
+            </div>
+        </div>
+    );
+}
 
-      <button type="button" className="App__increase" onClick={increase}>
-        Increase
-      </button>
-    </div>
-  );
-};
+export default App;
