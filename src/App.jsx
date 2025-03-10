@@ -2,14 +2,21 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  // eslint-disable-next-line prefer-const
+  let [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    count += 1;
+    setCount(count);
+
+    return count;
   };
 
   const add100 = () => {
-    // write code here
+    count += 100;
+    setCount(count);
+
+    return count;
   };
 
   // DON'T change the code below
