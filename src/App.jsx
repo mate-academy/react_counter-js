@@ -6,15 +6,13 @@ export const App = () => {
   let [count, setCount] = useState(0);
 
   const addOne = () => {
-    count += 1;
-    setCount(count);
+    setCount(count + 1);
 
     return count;
   };
 
   const add100 = () => {
-    count += 100;
-    setCount(count);
+    setCount(count + 100);
 
     return count;
   };
