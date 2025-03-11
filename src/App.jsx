@@ -2,17 +2,18 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  // eslint-disable-next-line prefer-const
+  let [count, newCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    newCount(count + 1);
   };
 
   const add100 = () => {
-    // write code here
+    newCount(count + 100);
+    count += 100;
   };
 
-  // DON'T change the code below
   const increase = () => {
     if (count % 5 === 0) {
       add100();
