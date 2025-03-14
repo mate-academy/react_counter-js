@@ -17,7 +17,7 @@ export const App = () => {
     setCount(prevCount => {
       const newCount = prevCount + 1;
 
-      if (newCount % 5 === 0) {
+      if (newCount % 5 === 1) {
         return newCount + 100;
       }
 
