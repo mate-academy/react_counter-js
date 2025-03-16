@@ -3,10 +3,8 @@ import './App.scss';
 
 export const App = () => {
   const [count, setCount] = useState(0);
-  // eslint-disable-next-line no-shadow
-  const addOne = () => setCount(count => count + 1);
-  // eslint-disable-next-line no-shadow
-  const add100 = () => setCount(count => count + 100);
+  const addOne = () => setCount(prevCount => prevCount + 1);
+  const add100 = () => setCount(prevCount => prevCount + 100);
 
   // DON'T change the code below
   const increase = () => {
