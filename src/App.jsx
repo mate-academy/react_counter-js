@@ -17,10 +17,10 @@ export const App = () => {
     setCount(currentCount => {
       let copyCount = currentCount;
 
-      if (copyCount % 5 === 0) {
-        copyCount += 100 + 1;
-      } else {
+      if (copyCount % 5 !== 0) {
         copyCount += 1;
+      } else if (copyCount % 5 === 0) {
+        copyCount += 100 + 1;
       }
 
       return copyCount;
