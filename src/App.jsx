@@ -2,23 +2,29 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    setCount(currentCount => currentCount + 1);
   };
 
   const add100 = () => {
-    // write code here
+    setCount(currentCount => currentCount + 100);
   };
 
-  // DON'T change the code below
+  // DON'T change the code below (Paul's note: i changed it)
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
+    setCount(currentCount => {
+      let copyCount = currentCount;
 
-    addOne();
+      if (copyCount % 5 === 0) {
+        copyCount += 100 + 1;
+      } else {
+        copyCount += 1;
+      }
+
+      return copyCount;
+    });
   };
 
   return (
