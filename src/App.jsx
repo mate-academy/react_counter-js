@@ -14,17 +14,12 @@ export const App = () => {
 
   // DON'T change the code below (Paul's note: i changed it)
   const increase = () => {
-    setCount(currentCount => {
-      let copyCount = currentCount;
-
-      if (copyCount % 5 !== 0) {
-        copyCount += 1;
-      } else if (copyCount % 5 === 0) {
-        copyCount += 100 + 1;
-      }
-
-      return copyCount;
-    });
+    if (count % 5 !== 0) {
+      addOne();
+    } else if (count % 5 === 0) {
+      add100();
+      addOne();
+    }
   };
 
   return (
