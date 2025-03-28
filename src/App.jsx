@@ -2,14 +2,16 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
     // write code here
+    setCount(current => current + 1);
   };
 
   const add100 = () => {
     // write code here
+    setCount(current => current + 100);
   };
 
   // DON'T change the code below
@@ -26,7 +28,7 @@ export const App = () => {
       <h1 className="App__title">{`Count: ${count}`}</h1>
 
       <button type="button" className="App__add-one" onClick={addOne}>
-        Add 1
+        Add {count}
       </button>
 
       <button type="button" className="App__add-100" onClick={add100}>
