@@ -1,41 +1,37 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable padding-line-between-statements */
 import { useState } from 'react';
-import './App.scss';
+// eslint-disable-next-line import/no-self-import
+import './App';
 
-export const App = () => {
-  const [count] = useState(0);
+export function App() {
+  const [count, setCount] = useState(0);
 
-  const addOne = () => {
-    // write code here
-  };
+  const addOne = () => setCount(prev => prev + 1);
+  const add100 = () => setCount(prev => prev + 100);
 
-  const add100 = () => {
-    // write code here
-  };
-
-  // DON'T change the code below
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
-
-    addOne();
+    setCount(prev => {
+      const newCount = prev + 1;
+      if (newCount % 5 === 0) {
+        return newCount + 100;
+      }
+      return newCount;
+    });
   };
 
   return (
     <div className="App">
-      <h1 className="App__title">{`Count: ${count}`}</h1>
-
-      <button type="button" className="App__add-one" onClick={addOne}>
+      <h1 className="App__title">Count: {count}</h1>
+      <button className="App__add-one" onClick={addOne}>
         Add 1
       </button>
-
-      <button type="button" className="App__add-100" onClick={add100}>
+      <button className="App__add-100" onClick={add100}>
         Add 100
       </button>
-
-      <button type="button" className="App__increase" onClick={increase}>
+      <button className="App__increase" onClick={increase}>
         Increase
       </button>
     </div>
   );
-};
+}
