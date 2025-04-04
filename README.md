@@ -1,3 +1,5 @@
+[DEMO LINK](https://vkrasnovyd.github.io/react_counter-js/)
+
 # React counter
 
 > Here is [the working version](https://mate-academy.github.io/react_counter/)
