@@ -4,10 +4,6 @@ import './App.scss';
 export const App = () => {
   const [count, setCount] = useState(0);
 
-  const reset = () => {
-    setCount(0);
-  };
-
   const addOne = () => {
     setCount(prev => prev + 1);
   };
@@ -39,10 +35,6 @@ export const App = () => {
 
       <button type="button" className="App__increase" onClick={increase}>
         Increase
-      </button>
-
-      <button type="button" className="App__increase" onClick={reset}>
-        Reset
       </button>
     </div>
   );
