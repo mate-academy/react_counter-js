@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import './App.scss';
 
-// According to task requirement:
-// - `Increase` button calls `addOne` and then, if count was divisible by 5, it additionally calls `add100`.
-// Moreover, I can't change increase function.
-
 export const App = () => {
   const [count, setCount] = useState(0);
 
@@ -16,13 +12,14 @@ export const App = () => {
     setCount(currentCount => currentCount + 100);
   };
 
-  // DON'T change the code below
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
+    setCount(currentCount => {
+      if (currentCount % 5 === 0) {
+        return currentCount + 100 + 1;
+      }
 
-    addOne();
+      return currentCount + 1;
+    });
   };
 
   return (
