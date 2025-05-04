@@ -9,16 +9,18 @@ export const App = () => {
   };
 
   const add100 = () => {
-    setCount(currentCount => currentCount + 100);
+    for (let i = 0; i < 100; i++) {
+      addOne();
+    }
   };
 
   // DON'T change the code below
   const increase = () => {
     if (count % 5 === 0) {
       add100();
-    } else {
-      addOne();
     }
+
+    addOne();
   };
 
   return (
