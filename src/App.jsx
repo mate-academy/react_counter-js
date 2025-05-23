@@ -13,13 +13,17 @@ export const App = () => {
   };
 
   // DON'T change the code below
-  const increase = () => {
-    if (count % 5 === 0) {
-      add100();
+const increase = () => {
+  setCount(prevCount => {
+    let updatedCount = prevCount;
+
+    if (prevCount % 5 === 0) {
+      updatedCount += 100;
     }
 
-    addOne();
-  };
+    return updatedCount + 1;
+  });
+};
 
   return (
     <div className="App">
