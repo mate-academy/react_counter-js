@@ -39,3 +39,4 @@ export const App = () => {
     </div>
   );
 };
+// for ai buddy
