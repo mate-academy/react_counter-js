@@ -8,8 +8,11 @@ You have the `App` with a title and 3 buttons. Implement `addOne` and `add100` f
 - `Add 100` button calls `add100` method to add `100` to the `count`;
 - `Increase` button calls `addOne` and then, if count is divisible by 5, it additionally calls `add100`.
 
+
 So the third button should count like this:
 `101, 102, 103, 104, 105, 206, 207, 208, 209, 210, 311 ...`
+
+
 
 ## Instructions
 - Install Prettier Extesion and use this [VSCode settings](https://mate-academy.github.io/fe-program/tools/vscode/settings.json) to enable format on save.
