@@ -13,11 +13,11 @@ export const App = () => {
   };
 
   const increase = () => {
-    setCount(prev => {
-      const next = prev + 1;
+    setCount(prev => prev + 1);
 
-      return next % 5 === 0 ? next + 100 : next;
-    });
+    setTimeout(() => {
+      setCount(prev => (prev % 5 === 0 ? prev + 100 : prev));
+    }, 0);
   };
 
   return (
