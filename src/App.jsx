@@ -3,26 +3,26 @@ import './App.scss';
 
 export const App = () => {
   const [count, setCount] = useState(0);
-  const isIncreaseTriggered = useRef(false);
+  const isIncrease = useRef(false);
 
   const addOne = () => {
     setCount(prev => {
       const newCount = prev + 1;
 
-      if (isIncreaseTriggered.current && newCount % 5 === 0) {
-        isIncreaseTriggered.current = false;
+      if (isIncrease.current && newCount % 5 === 0) {
+        isIncrease.current = false;
 
         return newCount + 100;
       }
 
-      isIncreaseTriggered.current = false;
+      isIncrease.current = false;
 
       return newCount;
     });
   };
 
   const add100 = () => {
-    isIncreaseTriggered.current = true;
+    isIncrease.current = true;
   };
 
   // DON'T change the code below
