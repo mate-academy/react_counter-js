@@ -3,29 +3,26 @@ import './App.scss';
 
 export const App = () => {
   const [count, setCount] = useState(0);
-  const wasAdd100Triggered = useRef(false);
+  const isIncreaseTriggered = useRef(false);
 
   const addOne = () => {
     setCount(prev => {
-      if (wasAdd100Triggered.current) {
-        wasAdd100Triggered.current = false;
-
-        return prev + 1;
-      }
-
       const newCount = prev + 1;
 
-      if (newCount % 5 === 0) {
+      if (isIncreaseTriggered.current && newCount % 5 === 0) {
+        isIncreaseTriggered.current = false;
+
         return newCount + 100;
       }
+
+      isIncreaseTriggered.current = false;
 
       return newCount;
     });
   };
 
   const add100 = () => {
-    wasAdd100Triggered.current = true;
-    setCount(prev => prev + 100);
+    isIncreaseTriggered.current = true;
   };
 
   // DON'T change the code below
@@ -45,7 +42,11 @@ export const App = () => {
         Add 1
       </button>
 
-      <button type="button" className="App__add-100" onClick={add100}>
+      <button
+        type="button"
+        className="App__add-100"
+        onClick={() => setCount(c => c + 100)}
+      >
         Add 100
       </button>
 
