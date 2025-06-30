@@ -1,15 +1,31 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
+  const wasAdd100Triggered = useRef(false);
 
   const addOne = () => {
-    // write code here
+    setCount(prev => {
+      if (wasAdd100Triggered.current) {
+        wasAdd100Triggered.current = false;
+
+        return prev + 1;
+      }
+
+      const newCount = prev + 1;
+
+      if (newCount % 5 === 0) {
+        return newCount + 100;
+      }
+
+      return newCount;
+    });
   };
 
   const add100 = () => {
-    // write code here
+    wasAdd100Triggered.current = true;
+    setCount(prev => prev + 100);
   };
 
   // DON'T change the code below
