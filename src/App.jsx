@@ -1,15 +1,28 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
+  const isIncrease = useRef(false);
 
   const addOne = () => {
-    // write code here
+    setCount(prev => {
+      const newCount = prev + 1;
+
+      if (isIncrease.current && newCount % 5 === 0) {
+        isIncrease.current = false;
+
+        return newCount + 100;
+      }
+
+      isIncrease.current = false;
+
+      return newCount;
+    });
   };
 
   const add100 = () => {
-    // write code here
+    isIncrease.current = true;
   };
 
   // DON'T change the code below
@@ -29,7 +42,11 @@ export const App = () => {
         Add 1
       </button>
 
-      <button type="button" className="App__add-100" onClick={add100}>
+      <button
+        type="button"
+        className="App__add-100"
+        onClick={() => setCount(c => c + 100)}
+      >
         Add 100
       </button>
 
