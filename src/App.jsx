@@ -2,17 +2,14 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  console.log('App')
   const [count, setCount] = useState(0);
 
   const addOne = () => {
-    setCount((currentCount) => currentCount + 1);
-    // для того щоб оновити значення на основі попереднього значення потрібно в стейт функцію передати колбек.
-    // currentCount - поточне значення
+    setCount(currentCount => currentCount + 1);
   };
 
   const add100 = () => {
-    setCount((currentCount) => currentCount + 100);
+    setCount(currentCount => currentCount + 100);
   };
 
   // DON'T change the code below
