@@ -5,19 +5,18 @@ export const App = () => {
   const [count, setCount] = useState(0);
 
   const addOne = () => {
-    setCount(count + 1)
+    setCount(count + 1);
   };
 
   const add100 = () => {
-    setCount(count + 100)
+    setCount(count + 100);
   };
 
   // DON'T change the code below
   const increase = () => {
-
     addOne();
 
-    if (count % 5 === 0) {
+    if (count % 5 === 0 && count > 0) {
       setCount(() => count + 101);
     }
   };
