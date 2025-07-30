@@ -4,7 +4,7 @@ import './App.scss';
 export const App = () => {
   const [count, setCount] = useState(0);
 
-  const addOne = () => {
+  const addOne = async () => {
     setCount(count + 1);
   };
 
@@ -14,10 +14,12 @@ export const App = () => {
 
   // DON'T change the code below
   const increase = () => {
-    addOne();
 
-    if (count % 5 === 0 && count > 0) {
-      setCount(() => count + 101);
+    const newCount = count + 1;
+    setCount(newCount);
+
+    if (newCount % 5 === 0 && newCount > 0) {
+      setCount(newCount + 100);
     }
   };
 
