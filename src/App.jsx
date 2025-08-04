@@ -2,14 +2,17 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    // COMMENTS FOR WORK AI BUDDY
+    setCount(prev => prev + 1);
   };
 
   const add100 = () => {
-    // write code here
+    // COMMENTS FOR WORK AI BUDDY
+    setCount(prev => prev + 100);
+    // COMMENTS FOR WORK AI BUDDY
   };
 
   // DON'T change the code below
