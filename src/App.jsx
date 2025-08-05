@@ -2,14 +2,39 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
+
+  // const [goods, setGoods] = useState(initialGoods);
+
+  // function moveUp(good) {
+  //   // знаходимо поточний індекс елемента
+  //   const index = goods.indexOf(good);
+
+  //   // міняємо його місцями з попереднім
+  //   goods[index] = goods[index - 1];
+  //   goods[index - 1] = good;
+
+  //   setGoods(goods);
+  // }
 
   const addOne = () => {
-    // write code here
+    setCount(countCurrrent => {
+      let countAdd = countCurrrent;
+
+      countAdd += 1;
+
+      return countAdd;
+    });
   };
 
   const add100 = () => {
-    // write code here
+    setCount(countCurrrent => {
+      let countAdd = countCurrrent;
+
+      countAdd += 100;
+
+      return countAdd;
+    });
   };
 
   // DON'T change the code below
