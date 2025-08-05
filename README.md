@@ -15,4 +15,15 @@ So the third button should count like this:
 - Install Prettier Extesion and use this [VSCode settings](https://mate-academy.github.io/fe-program/tools/vscode/settings.json) to enable format on save.
 - Implement a solution following the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline).
 - Open one more terminal and run tests with `npm test` to ensure your solution is correct.
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_counter-js/) and add it to PR description.
+- Replace `<your_account>` with your Github username in the [DEMO LINK](https://YuliiaKosenchuk.github.io/react_counter-js/) and add it to PR description.
+
+Ось переклад українською:
+
+У вас є додаток з заголовком та 3 кнопками. Реалізуйте функції `addOne` та `add100` так, щоб кнопки працювали наступним чином:
+
+- Кнопка `Add 1` викликає метод `addOne`, який додає `1` до змінної `count`;
+- Кнопка `Add 100` викликає метод `add100`, який додає `100` до змінної `count`;
+- Кнопка `Increase` викликає метод `addOne`, а потім, якщо значення `count` було кратним 5, вона додатково викликає метод `add100`.
+
+Таким чином, третя кнопка повинна рахувати так:
+`101, 102, 103, 104, 105, 206, 207, 208, 209, 210, 311 ...`
