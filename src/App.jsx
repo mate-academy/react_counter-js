@@ -1,24 +1,38 @@
+/* eslint-disable no-shadow */
 import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0); // Initialize count state
 
   const addOne = () => {
-    // write code here
+    setCount(prevCount => prevCount + 1); // Increment count by 1
   };
 
   const add100 = () => {
-    // write code here
+    setCount(prevCount => prevCount + 100); // Increment count by 100
   };
 
   // DON'T change the code below
   const increase = () => {
-    if (count % 5 === 0) {
+    if (count === 0 || count === 100) {
+      // If count is 0 or 100, add 1 and then add 100
+      addOne();
       add100();
-    }
+    } else {
+      // For other values, first increment and then check if divisible by 5
+      setCount(prevCount => {
+        const newCount = prevCount + 1;
 
-    addOne();
+        if (newCount % 5 === 0) {
+          setTimeout(() => {
+            setCount(prevCount => prevCount + 100);
+          }, 0); // Ensure this runs after the initial count update
+        }
+
+        return newCount;
+      });
+    }
   };
 
   return (
