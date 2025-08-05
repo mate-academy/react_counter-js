@@ -2,16 +2,22 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
+  // для setCount прописуєм колбек, який має змогу памятати попереднє значення Count
   const addOne = () => {
-    // write code here
+    setCount(prev => prev + 1);
   };
 
   const add100 = () => {
-    // write code here
+    setCount(prev => prev + 100);
   };
 
+  const clear = () => {
+    setCount(0);
+  };
+
+  // тут спрацьовує того шо 0 % 5 === 0, спочатку додає 100 а потім 1
   // DON'T change the code below
   const increase = () => {
     if (count % 5 === 0) {
@@ -35,6 +41,10 @@ export const App = () => {
 
       <button type="button" className="App__increase" onClick={increase}>
         Increase
+      </button>
+
+      <button type="button" className="App__clear" onClick={clear}>
+        clear
       </button>
     </div>
   );
