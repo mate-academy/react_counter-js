@@ -12,21 +12,20 @@ export const App = () => {
     setCount(prev => prev + 100);
   };
 
+  // DON'T change the code below
   const increase = () => {
-    setCount(prev => {
-      if (prev % 5 === 0) {
-        return prev + 1 + 100;
-      }
+    if (count % 5 === 0) {
+      add100();
+    }
 
-      return prev + 1;
-    });
+    addOne();
   };
 
   return (
     <div className="App">
       <h1 className="App__title">{`Count: ${count}`}</h1>
 
-      <button type="button" className="App__add-one" onClick={addOne}>
+      <button type="button" className="App__add-one" onClick={() => addOne()}>
         Add 1
       </button>
 
