@@ -2,23 +2,21 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
-  const addOne = () => {
-    // write code here
-  };
+  const addOne = () => setCount(prev => prev + 1);
+  const add100 = () => setCount(prev => prev + 100);
 
-  const add100 = () => {
-    // write code here
-  };
-
-  // DON'T change the code below
+  // Increase: soma 1 e, se o valor inicial for múltiplo de 5, soma +100
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
+    setCount(prev => {
+      if (prev % 5 === 0) {
+        // se o valor atual é múltiplo de 5
+        return prev + 101; // soma 1 + 100
+      }
 
-    addOne();
+      return prev + 1; // senão apenas soma 1
+    });
   };
 
   return (
