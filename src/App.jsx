@@ -15,12 +15,18 @@ export const App = () => {
   };
 
   // DON'T change the code below
+  // Fixed increase: add 1 first, then maybe +100
+  // я хз тут пише нічого не міняти але та єбанашка каже щоб я це поміняв
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
+    setCount(prev => {
+      let next = prev + 1;
 
-    addOne();
+      if (next % 5 === 0) {
+        next += 100;
+      }
+
+      return next;
+    });
   };
 
   return (
