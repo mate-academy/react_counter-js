@@ -18,9 +18,9 @@ export const App = () => {
 
   // DON'T change the code below
   const increase = () => {
-    addOne();
+    const newCount = count + 1;
 
-    if (count % 5 === 0) {
+    if (newCount % 5 === 0) {
       add100();
     }
   };
