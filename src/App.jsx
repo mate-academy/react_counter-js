@@ -17,13 +17,14 @@ export const App = () => {
   // Оновлена функція increase
   const increase = () => {
     setCount(prevCount => {
-      // Спочатку додаємо 1 до попереднього значення
-      let newCount = prevCount + 1;
-
-      // Якщо нове значення ділиться на 5, додаємо 100
-      if (newCount % 5 === 0) {
+      // Якщо попереднє значення ділиться на 5, додаємо 100
+      let newCount = prevCount;
+      if (newCount % 5 === 0 && newCount !== 0) {
         newCount += 100;
       }
+
+      // Після цього додаємо 1
+      newCount += 1;
 
       // Повертаємо фінальне значення
       return newCount;
