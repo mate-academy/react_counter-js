@@ -2,23 +2,25 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  // We need to set the state properly, so we need both the count value and the setter function
+  const [count, setCount] = useState(0);
 
+  // Function to add 1 to the count
   const addOne = () => {
-    // write code here
+    setCount(prevCount => prevCount + 1);
   };
 
+  // Function to add 100 to the count
   const add100 = () => {
-    // write code here
+    setCount(prevCount => prevCount + 100);
   };
 
-  // DON'T change the code below
+  // Increase function, checks if count is divisible by 5, then adds 100
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
+    addOne();  // First, add 1
+    if (count % 5 === 0) {  // Then check if count is divisible by 5
+      add100();  // If divisible by 5, add 100
     }
-
-    addOne();
   };
 
   return (
