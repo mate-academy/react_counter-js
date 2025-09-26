@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.scss';
 
 export const App = () => {
   const [count, setCount] = useState(0);
+  const shouldCheckAdd100 = useRef(false);
 
   const addOne = () => {
     setCount(prevCount => prevCount + 1);
@@ -12,14 +13,17 @@ export const App = () => {
     setCount(prevCount => prevCount + 100);
   };
 
-  // DON'T change the code below
   const increase = () => {
-    setCount(prev => {
-      const next = prev + 1;
-
-      return next % 5 === 0 ? next + 100 : next;
-    });
+    shouldCheckAdd100.current = true; // Set flag to check add100 after state update
+    addOne(); // Call addOne first
   };
+
+  useEffect(() => {
+    if (shouldCheckAdd100.current && count % 5 === 0) {
+      add100(); // Call add100 if count is divisible by 5
+      shouldCheckAdd100.current = false; // Reset flag
+    }
+  }, [count]);
 
   return (
     <div className="App">
