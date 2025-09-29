@@ -18,11 +18,7 @@ export const App = () => {
 
   // DON'T change the code below
   const increase = () => {
-    setCount(prev => {
-      const after = prev + 1;
-
-      return after % 5 === 0 ? after + 100 : after;
-    });
+    setCount(prev => (prev % 5 === 0 ? prev + 101 : prev + 1));
   };
 
   return (
