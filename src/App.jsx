@@ -18,11 +18,11 @@ export const App = () => {
 
   // DON'T change the code below
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
+    setCount(prev => {
+      const after = prev + 1;
 
-    addOne();
+      return after % 5 === 0 ? after + 100 : after;
+    });
   };
 
   return (
