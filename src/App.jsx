@@ -16,6 +16,8 @@ export const App = () => {
   const increase = () => {
     if (count % 5 === 0) {
       add100();
+
+      return;
     }
 
     addOne();
