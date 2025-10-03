@@ -28,7 +28,7 @@ export const App = () => {
       <h1 className="App__title">{`Count: ${count}`}</h1>
 
       <button type="button" className="App__add-one" onClick={addOne}>
-        Add 1 point
+        Add 1
       </button>
 
       <button type="button" className="App__add-100" onClick={add100}>
