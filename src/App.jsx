@@ -1,24 +1,26 @@
 import { useState } from 'react';
 import './App.scss';
 
+// Função utilitária para verificar se um número é múltiplo de 5
+const isMultipleOf5 = number => number % 5 === 0;
+
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    setCount(prevCount => prevCount + 1);
   };
 
   const add100 = () => {
-    // write code here
+    setCount(prevCount => prevCount + 100);
   };
 
-  // DON'T change the code below
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
+    setCount(prev => {
+      const newValue = prev + 1;
 
-    addOne();
+      return isMultipleOf5(prev) ? newValue + 100 : newValue;
+    });
   };
 
   return (
