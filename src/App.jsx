@@ -17,7 +17,7 @@ export const App = () => {
     setCount(currentCount => {
       const next = currentCount + 1;
 
-      return next % 5 === 0 ? next + 100 : next;
+      return currentCount % 5 === 0 ? next + 100 : next;
     });
   };
 
