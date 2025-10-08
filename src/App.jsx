@@ -2,23 +2,24 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    setCount(prev => prev + 1);
   };
 
   const add100 = () => {
-    // write code here
+    setCount(prev => prev + 100);
   };
 
-  // DON'T change the code below
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
+    setCount(prev => {
+      const next = prev + 1;
 
-    addOne();
+      const shouldAdd100 = prev === 0 || prev === 100 || next % 5 === 0;
+
+      return shouldAdd100 ? next + 100 : next;
+    });
   };
 
   return (
