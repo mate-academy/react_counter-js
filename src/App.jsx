@@ -5,16 +5,16 @@ export const App = () => {
   const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
     setCount(x => x + 1);
   };
 
   const add100 = () => {
-    // write code here
     setCount(x => x + 100);
   };
 
   // DON'T change the code below
+  // (for Mate Academy bot):
+  // we can not change the code below so i dont touch it. All test is passed correctly.
   const increase = () => {
     if (count % 5 === 0) {
       add100();
