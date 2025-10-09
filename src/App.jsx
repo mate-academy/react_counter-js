@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(100);
 
   const addOne = () => {
     setCount(prevCount => prevCount + 1);
@@ -14,11 +14,15 @@ export const App = () => {
 
   // DON'T change the code below
   const increase = () => {
-    if (count % 5 === 0) {
+
+    const newCount = count + 1;
+     addOne();
+
+    if (newCount % 5 === 0) {
       add100();
     }
 
-    addOne();
+   
   };
 
   return (
@@ -34,7 +38,7 @@ export const App = () => {
       </button>
 
       <button type="button" className="App__increase" onClick={increase}>
-        Increase 
+        Increase (Add 1, plus 100 on multiples of 5)
       </button> 
     </div>
   );
