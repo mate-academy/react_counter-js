@@ -1,16 +1,17 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
-  const addOne = () => {
-    // write code here
-  };
+  // Stable functions that always use the latest state
+  const addOne = useCallback(() => {
+    setCount(prev => prev + 1);
+  }, []);
 
-  const add100 = () => {
-    // write code here
-  };
+  const add100 = useCallback(() => {
+    setCount(prev => prev + 100);
+  }, []);
 
   // DON'T change the code below
   const increase = () => {
