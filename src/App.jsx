@@ -2,14 +2,22 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
+
+  // const addOne = () => {
+  //   setCount(() => count + 1);
+  // };
+
+  // const add100 = () => {
+  //   setCount(() => count + 1);
+  // };
 
   const addOne = () => {
-    // write code here
+    setCount(newCount => newCount + 1);
   };
 
   const add100 = () => {
-    // write code here
+    setCount(newCount => newCount + 100);
   };
 
   // DON'T change the code below
@@ -39,3 +47,15 @@ export const App = () => {
     </div>
   );
 };
+
+// Закоментированный код не работает т.к.
+// Коротко: логика increase не работает с закомментированным кодом,
+// потому что внутри increase ты используешь текущее значение count,
+// которое не обновляется сразу, а setCount — асинхронный.
+
+// ❌ setCount(() => count + 1)
+// Использует старое значение count → логика increase ломается.
+
+// ✅ setCount(prev => prev + 1)
+// Всегда использует актуальное значение, даже при нескольких вызовах подряд → всё работает.
+// Если обновление зависит от предыдущего состояния → всегда используй функциональный апдейт
