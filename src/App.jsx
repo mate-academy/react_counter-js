@@ -2,14 +2,26 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0); // - count → valor atual do estado.
+  // - setCount → função que muda esse valor.
 
   const addOne = () => {
     // write code here
+    setCount(prev => prev + 1); // - Aqui, o React passa para você o valor mais
+    // atualizado do estado como argumento da função. Esse argumento é chamado de
+    // prev (abreviação de previous state = estado anterior).
+    /* Quando você chama setCount, pode passar:
+- Um valor direto:
+setCount(count + 1);
+- Isso usa o valor atual da variável count.
+- Uma função:
+  setCount(prev => prev + 1)
+*/
   };
 
   const add100 = () => {
     // write code here
+    setCount(prev => prev + 100);
   };
 
   // DON'T change the code below
