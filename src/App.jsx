@@ -17,16 +17,13 @@ export const App = () => {
   };
 
   const increase = () => {
-    setCount(prevCount => {
-      const newCount = prevCount + 1;
+    const divisibleBy5 = count % 5 === 0;
+    addOne();
 
-      if (prevCount % 5 === 0) {
-        return newCount + 100;
-      }
-
-      return newCount;
-    })
-  }
+    if (divisibleBy5) {
+      add100();
+    }
+  };
 
   return (
     <div className="App">
