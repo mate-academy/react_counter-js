@@ -5,22 +5,24 @@ export const App = () => {
   const [count, setCount] = useState(0);
 
   const addOne = () => {
-    setCount(count + 1);
+    setCount(prevCount => prevCount + 1);
   };
 
   const add100 = () => {
-    setCount(count + 100);
+    setCount(prevCount => prevCount + 100);
   };
 
   // DON'T change the code below
   const increase = () => {
-    const newCount = count + 1;
+    setCount(prevCount => {
+      const newCount = prevCount + 1;
 
-    if (count % 5 === 0) {
-      setCount(newCount + 100);
-    } else {
-      setCount(newCount);
-    }
+      if (prevCount % 5 === 0) {
+        return newCount + 100;
+      }
+
+      return newCount;
+    });
   };
 
   return (
