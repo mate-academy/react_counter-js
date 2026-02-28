@@ -11,6 +11,7 @@ You have the `App` with a title and 3 buttons. Implement `addOne` and `add100` f
 So the third button should count like this:
 `101, 102, 103, 104, 105, 206, 207, 208, 209, 210, 311 ...`
 
+
 ## Instructions
 - Install Prettier Extesion and use this [VSCode settings](https://mate-academy.github.io/fe-program/tools/vscode/settings.json) to enable format on save.
 - Implement a solution following the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline).
