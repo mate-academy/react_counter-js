@@ -9,15 +9,15 @@ export const App = () => {
   };
 
   const add100 = () => {
-        setCount(prev => prev + 100);
+    setCount(prev => prev + 100);
   };
 
- 
   const increase = () => {
+    addOne();
+
     if (count % 5 === 0) {
       add100();
-    } 
-    addOne();
+    }
   };
 
   return (
