@@ -2,17 +2,20 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  // Додаємо setCount для можливості змінювати стан
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    // Використовуємо функцію, щоб отримати актуальне попереднє значення
+    setCount(prevCount => prevCount + 1);
   };
 
   const add100 = () => {
-    // write code here
+    // Аналогічно для додавання 100
+    setCount(prevCount => prevCount + 100);
   };
 
-  // DON'T change the code below
+  // Цю частину ми не змінюємо за умовою
   const increase = () => {
     if (count % 5 === 0) {
       add100();
