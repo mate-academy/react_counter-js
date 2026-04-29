@@ -1,20 +1,20 @@
 import { useState } from 'react';
 import './App.scss';
 
-const App = () => {
+export const App = () => {
   const [count, setCount] = useState(0);
 
   const addOne = () => {
-    setCount(currentCount => currentCount + 1);
+    setCount(prev => prev + 1);
   };
 
   const add100 = () => {
-    setCount(currentCount => currentCount + 100);
+    setCount(prev => prev + 100);
   };
 
-  // DON'T change the code below
   const increase = () => {
     addOne();
+
     if (count % 5 === 0) {
       add100();
     }
@@ -38,5 +38,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
