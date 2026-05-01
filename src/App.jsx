@@ -20,6 +20,7 @@ export const App = () => {
 
     addOne();
   };
+  
 
   return (
     <div className="App">
