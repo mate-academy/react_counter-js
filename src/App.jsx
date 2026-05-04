@@ -12,7 +12,6 @@ export const App = () => {
     changeCount(prev => prev + 100);
   };
 
-  // DON'T change the code below
   const increase = () => {
     changeCount(prev => {
       const newCount = prev + 1;
