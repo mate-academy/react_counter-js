@@ -1,5 +1,26 @@
-import { createRoot } from 'react-dom/client';
+import React, { useState } from 'react';
+import './App.scss';
 
-import { App } from './App';
+export const App = () => {
+  const [count, setCount] = useState(0);
 
-createRoot(document.getElementById('root')).render(<App />);
+  const addOne = () => {
+    setCount(currentCount => currentCount + 1);
+  };
+
+  const add100 = () => {
+    setCount(currentCount => currentCount + 100);
+  };
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button type="button" onClick={addOne}>
+        Add 1
+      </button>
+      <button type="button" onClick={add100}>
+        Add 100
+      </button>
+    </div>
+  );
+};
