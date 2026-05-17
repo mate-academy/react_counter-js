@@ -1,7 +1,63 @@
-iframe {
-  display: none;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+body {
+  background: linear-gradient(135deg, #141e30, #243b55);
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.counter {
+  font-size: 72px;
+  margin-bottom: 40px;
+  color: #00ffcc;
+  transition: transform 0.3s ease;
+}
+
+.counter:hover {
+  transform: scale(1.1);
 }
 
 button {
+  padding: 12px 24px;
+  margin: 10px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: white;
+
+  &:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+
+  &.add1 {
+    background: linear-gradient(to right, #56ab2f, #a8e063); // verde
+  }
+
+  &.add100 {
+    background: linear-gradient(to right, #1e3c72, #2a5298); // azul
+  }
+
+  &.increase {
+    background: linear-gradient(to right, #ff512f, #dd2476); // laranja-rosa
+  }
 }

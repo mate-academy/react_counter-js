@@ -1,39 +1,29 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
-  const addOne = () => {
-    // write code here
-  };
+  const addOne = () => setCount(prev => prev + 1);
+  const add100 = () => setCount(prev => prev + 100);
 
-  const add100 = () => {
-    // write code here
-  };
-
-  // DON'T change the code below
   const increase = () => {
+    addOne();
     if (count % 5 === 0) {
       add100();
     }
-
-    addOne();
   };
 
   return (
-    <div className="App">
-      <h1 className="App__title">{`Count: ${count}`}</h1>
-
-      <button type="button" className="App__add-one" onClick={addOne}>
+    <div className="app">
+      <div className="counter">{count}</div>
+      <button className="add1" onClick={addOne}>
         Add 1
       </button>
-
-      <button type="button" className="App__add-100" onClick={add100}>
+      <button className="add100" onClick={add100}>
         Add 100
       </button>
-
-      <button type="button" className="App__increase" onClick={increase}>
+      <button className="increase" onClick={increase}>
         Increase
       </button>
     </div>
