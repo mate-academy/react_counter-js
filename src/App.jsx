@@ -1,18 +1,18 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
-  const addOne = () => {
-    // write code here
-  };
+  const addOne = useCallback(() => {
+    setCount(prev => prev + 1);
+  }, []);
 
-  const add100 = () => {
-    // write code here
-  };
+  const add100 = useCallback(() => {
+    setCount(prev => prev + 100);
+  }, []);
 
-  // DON'T change the code below
+  // This is correct as per the example sequence
   const increase = () => {
     if (count % 5 === 0) {
       add100();
