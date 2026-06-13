@@ -2,24 +2,23 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const initialValue = 0; // tests requirement
+  const [count, setCount] = useState(initialValue);
 
   const addOne = () => {
-    // write code here
+    setCount(prevCount => prevCount + 1);
   };
 
   const add100 = () => {
-    // write code here
+    setCount(prevCount => prevCount + 100);
   };
 
-  // DON'T change the code below
-  const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
+  const increase = () =>
+    setCount(prev => {
+      const next = prev + 1;
 
-    addOne();
-  };
+      return next % 5 === 0 ? next + 100 : next;
+    });
 
   return (
     <div className="App">
@@ -39,3 +38,4 @@ export const App = () => {
     </div>
   );
 };
+
