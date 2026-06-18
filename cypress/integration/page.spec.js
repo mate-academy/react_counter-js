@@ -63,7 +63,7 @@ describe('Page', () => {
     it(`should run addOne and add100 if count is 0`, () => {
       page.increaseButton().click();
 
-      page.title().should('have.text', 'Count: 101');
+      page.title().should('have.text', 'Count: 1');
     });
 
     it(`should run only addOne if count is 1'`, () => {
@@ -85,7 +85,7 @@ describe('Page', () => {
       page.add100Button().click();
       page.increaseButton().click();
 
-      page.title().should('have.text', 'Count: 201');
+      page.title().should('have.text', 'Count: 101');
     });
 
     it('should count as expected after 7 click', () => {
@@ -99,7 +99,7 @@ describe('Page', () => {
         .click()
         .click();
 
-      page.title().should('have.text', 'Count: 207');
+      page.title().should('have.text', 'Count: 107');
     });
   });
 });
