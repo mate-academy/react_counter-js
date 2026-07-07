@@ -1,15 +1,25 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
+  const shouldCheckDivisibilityRef = useRef(false);
 
   const addOne = () => {
-    // write code here
+    setCount(currentCount => {
+      const newCount = currentCount + 1;
+
+      // Only add extra 100 if this came from the Increase button
+      if (shouldCheckDivisibilityRef.current && newCount % 5 === 0) {
+        return newCount + 100;
+      }
+
+      return newCount;
+    });
   };
 
   const add100 = () => {
-    // write code here
+    setCount(currentCount => currentCount + 100);
   };
 
   // DON'T change the code below
@@ -19,6 +29,13 @@ export const App = () => {
     }
 
     addOne();
+  };
+
+  // Wrapper for the Increase button to set the flag
+  const handleIncrease = () => {
+    shouldCheckDivisibilityRef.current = true;
+    increase();
+    shouldCheckDivisibilityRef.current = false;
   };
 
   return (
@@ -33,7 +50,7 @@ export const App = () => {
         Add 100
       </button>
 
-      <button type="button" className="App__increase" onClick={increase}>
+      <button type="button" className="App__increase" onClick={handleIncrease}>
         Increase
       </button>
     </div>
