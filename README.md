@@ -32,13 +32,6 @@ Your task is to implement the logic for updating the counter.
     * after that, it always calls `addOne`.
 ---
 
-## Important note
-
-* The condition must be checked after incrementing the counter by 1.
-* The `increase` function is already implemented and must not be changed.
-
----
-
 ## Initial state
 
 ```
