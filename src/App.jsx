@@ -2,14 +2,16 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    // eslint-disable-next-line no-shadow
+    setCount(count => count + 1);
   };
 
   const add100 = () => {
-    // write code here
+    // eslint-disable-next-line no-shadow
+    setCount(count => count + 100);
   };
 
   // DON'T change the code below
