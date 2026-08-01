@@ -1,23 +1,29 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
+  const isFromIncrease = useRef(false); // ✅ використовується як "флаг"
 
   const addOne = () => {
-    // write code here
+    setCount(prev => {
+      if (isFromIncrease.current && prev % 5 === 0) {
+        isFromIncrease.current = false;
+
+        return prev + 101;
+      }
+
+      return prev + 1;
+    });
   };
 
   const add100 = () => {
-    // write code here
+    setCount(prev => prev + 100);
   };
 
   // DON'T change the code below
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
-
+    isFromIncrease.current = true;
     addOne();
   };
 
