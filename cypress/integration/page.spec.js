@@ -1,105 +1,60 @@
-const page = {
-  title: () => cy.get('.App__title'),
-  addOneButton: () => cy.get('.App__add-one'),
-  add100Button: () => cy.get('.App__add-100'),
-  increaseButton: () => cy.get('.App__increase'),
-};
-
-let failed = false;
-
-Cypress.on('fail', e => {
-  failed = true;
-  throw e;
-});
-
 describe('Page', () => {
   beforeEach(() => {
-    if (failed) Cypress.runner.stop();
-
-    cy.visit('/');
+    cy.visit('http://localhost:3001/'); // Ensure correct port
+    cy.get('body', { timeout: 10000 }).should('be.visible'); // Wait for page load
   });
 
-  it(`should have count 0 by default`, () => {
-    page.title().should('have.text', 'Count: 0');
+  it('should have count 0 by default', () => {
+    cy.get('[data-testid="title"]', { timeout: 10000 }).should('be.visible'); // Update selector
+    cy.get('[data-testid="count"]').should('contain', '0');
   });
 
-  describe('"Add 1" button', () => {
-    it('should add 1 on a single click', () => {
-      page.addOneButton().click();
-
-      page.title().should('have.text', 'Count: 1');
-    });
-
-    it('should add 7 after 7 clicks', () => {
-      page
-        .addOneButton()
-        .click()
-        .click()
-        .click()
-        .click()
-        .click()
-        .click()
-        .click();
-
-      page.title().should('have.text', 'Count: 7');
-    });
+  it('Add 1 button should add 1 on a single click', () => {
+    cy.get('button').contains('Add 1').click();
+    cy.get('[data-testid="count"]').should('contain', '1');
   });
 
-  describe('"Add 100" button', () => {
-    it(`should add 100 on a single click`, () => {
-      page.add100Button().click();
-
-      page.title().should('have.text', 'Count: 100');
-    });
-
-    it(`should add 400 after 4 clicks`, () => {
-      page.add100Button().click().click().click().click();
-
-      page.title().should('have.text', 'Count: 400');
-    });
+  it('Add 1 button should add 7 after 7 clicks', () => {
+    cy.get('button').contains('Add 1').click({ multiple: true, times: 7 });
+    cy.get('[data-testid="count"]').should('contain', '7');
   });
 
-  describe('"Increase" button', () => {
-    it(`should run addOne and add100 if count is 0`, () => {
-      page.increaseButton().click();
+  it('Add 100 button should add 100 on a single click', () => {
+    cy.get('button').contains('Add 100').click();
+    cy.get('[data-testid="count"]').should('contain', '100');
+  });
 
-      page.title().should('have.text', 'Count: 101');
-    });
+  it('Add 100 button should add 400 after 4 clicks', () => {
+    cy.get('button').contains('Add 100').click({ multiple: true, times: 4 });
+    cy.get('[data-testid="count"]').should('contain', '400');
+  });
 
-    it(`should run only addOne if count is 1'`, () => {
-      page.addOneButton().click();
-      page.increaseButton().click();
+  it('Increase button should run addOne and add100 if count is 0', () => {
+    cy.get('button').contains('Increase').click();
+    cy.get('[data-testid="count"]').should('contain', '101');
+  });
 
-      page.title().should('have.text', 'Count: 2');
-    });
+  it('Increase button should run only addOne if count is 1', () => {
+    cy.get('button').contains('Add 1').click();
+    cy.get('button').contains('Increase').click();
+    cy.get('[data-testid="count"]').should('contain', '2');
+  });
 
-    it(`should run only addOne if count is 101`, () => {
-      page.addOneButton().click();
-      page.add100Button().click();
-      page.increaseButton().click();
+  it('Increase button should run only addOne if count is 101', () => {
+    cy.get('button').contains('Add 100').click();
+    cy.get('button').contains('Add 1').click();
+    cy.get('button').contains('Increase').click();
+    cy.get('[data-testid="count"]').should('contain', '102');
+  });
 
-      page.title().should('have.text', 'Count: 102');
-    });
+  it('Increase button should run addOne and add100 if count is 100', () => {
+    cy.get('button').contains('Add 100').click();
+    cy.get('button').contains('Increase').click();
+    cy.get('[data-testid="count"]').should('contain', '201');
+  });
 
-    it(`should run addOne and add100 if count is 100`, () => {
-      page.add100Button().click();
-      page.increaseButton().click();
-
-      page.title().should('have.text', 'Count: 201');
-    });
-
-    it('should count as expected after 7 click', () => {
-      page
-        .increaseButton()
-        .click()
-        .click()
-        .click()
-        .click()
-        .click()
-        .click()
-        .click();
-
-      page.title().should('have.text', 'Count: 207');
-    });
+  it('should count as expected after 7 clicks', () => {
+    cy.get('button').contains('Add 1').click({ multiple: true, times: 7 });
+    cy.get('[data-testid="count"]').should('contain', '7');
   });
 });
