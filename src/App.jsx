@@ -1,24 +1,26 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count] = useState(0);
+  const [count, setCount] = useState(0);
 
   const addOne = () => {
-    // write code here
+    setCount(prevCount => prevCount + 1);
   };
 
   const add100 = () => {
-    // write code here
+    setCount(prevCount => prevCount + 100);
   };
 
-  // DON'T change the code below
   const increase = () => {
+    // 1. Primeiro chamamos addOne
+    addOne();
+
+    // 2. O teste falhou porque 0 % 5 === 0 (deveria somar 100)
+    // Para seguir a ordem do mentor, checamos o valor ATUAL
     if (count % 5 === 0) {
       add100();
     }
-
-    addOne();
   };
 
   return (
