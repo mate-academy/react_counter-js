@@ -12,13 +12,16 @@ export const App = () => {
     setCount(currentCount => currentCount + 100);
   };
 
-  // DON'T change the code below
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
-
     addOne();
+
+    setCount(currentCount => {
+      if (currentCount % 5 === 0) {
+        return currentCount + 100;
+      }
+
+      return currentCount;
+    });
   };
 
   return (
