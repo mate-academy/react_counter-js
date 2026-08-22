@@ -53,3 +53,4 @@ Count: 0
 - Open one more terminal and run tests with `npm test` to ensure your solution is correct.
 - Replace `<your_account>` with your Github username in the [DEMO LINK](https://diiyavol.github.io/react_counter-js/) and add it to PR description.
 
+
