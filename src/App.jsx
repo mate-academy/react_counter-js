@@ -9,7 +9,7 @@ export const App = () => {
   };
 
   const add100 = () => {
-    // write code here
+    setCount(current => current + 100);
   };
 
   // DON'T change the code below
