@@ -36,14 +36,7 @@ export const App = () => {
       <button
         type="button"
         className="App__increase"
-        onClick={() => {
-          if (count === 0) {
-            addOne();
-            add100();
-          } else {
-            increase();
-          }
-        }}
+        onClick={() => (count === 0 ? (addOne(), add100()) : increase())}
       >
         Increase
       </button>
