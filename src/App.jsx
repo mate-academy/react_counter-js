@@ -6,13 +6,15 @@ export const App = () => {
 
   const addOne = () => {
     setcount(currentCount => {
-      return currentCount + 1;
+      const newCount = currentCount + 1;
+      return newCount;
     });
   };
 
   const add100 = () => {
     setcount(currentCount => {
-      return currentCount + 100;
+      const newCount = currentCount + 100;
+      return newCount;
     });
   };
 
