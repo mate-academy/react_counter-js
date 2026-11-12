@@ -5,15 +5,15 @@ export const App = () => {
   const [count, setcount] = useState(0);
 
   const addOne = () => {
-    setcount(count => {
-      return count + 1;
-    })
+    setcount(currentCount => {
+      return currentCount + 1;
+    });
   };
 
   const add100 = () => {
-    setcount(count => {
-      return count + 100;
-    })
+    setcount(currentCount => {
+      return currentCount + 100;
+    });
   };
 
   // DON'T change the code below
