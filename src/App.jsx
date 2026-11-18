@@ -41,3 +41,5 @@ export const App = () => {
     </div>
   );
 };
+
+// Tarefa feita conforme enunciado
