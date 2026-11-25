@@ -2,7 +2,8 @@ import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
-  const [count, setCount] = useState(0);
+  const [currentCount, setCount] = useState(0);
+  const count = currentCount + 1; // значення після збільшення на 1
 
   const addOne = () => {
     setCount(current => current + 1);
